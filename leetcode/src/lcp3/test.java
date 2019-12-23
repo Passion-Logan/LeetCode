@@ -76,10 +76,11 @@ public class test {
 
 
         // 获取全部路线
-        System.out.println(Arrays.deepToString(path));
+//        System.out.println(Arrays.deepToString(path));
         // 判断是否能安全到达终点
-        System.out.println(test.security(path, obstacles));
+//        System.out.println(test.security(path, obstacles));
 
+        System.out.println(test.robot2(command, obstacles, x, y));
 
         System.out.println(test.robot(command, obstacles, x, y));
     }
