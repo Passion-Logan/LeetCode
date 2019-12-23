@@ -172,10 +172,14 @@ public class test {
             return false;
         }
         for (int[] s : obstacles) {
-            if (s.length != 2) continue;
+            if (s.length != 2) {
+                continue;
+            }
             int x1 = s[0];
             int y1 = s[1];
-            if (x1 > x || y1 > y) continue;
+            if (x1 > x || y1 > y) {
+                continue;
+            }
             cir = Math.min(x1 / xx, y1 / yy);
             if (ss.contains(((long) (x1 - cir * xx) << 30) | (y1 - cir * yy)) == true) {
                 return false;
@@ -190,8 +194,11 @@ public class test {
         char[] cmd = command.toCharArray();
         // 算出up和right各有多少个。
         for (char c : cmd) {
-            if (c == 'U') dy++;
-            else dx++;
+            if (c == 'U') {
+                dy++;
+            } else {
+                dx++;
+            }
         }
         // 拿到走到终点的次数。
         int ans = isPassed(cmd, x, y, dx, dy);
@@ -202,10 +209,14 @@ public class test {
             因为如果终点在这个点的前面，那么机器人根本不会走到那个点。答案是true。
         */
         // 终点都没经过，肯定false
-        if (ans == -1) return false;
+        if (ans == -1) {
+            return false;
+        }
         for (int[] obstacle : obstacles) {
             int cnt = isPassed(cmd, obstacle[0], obstacle[1], dx, dy);
-            if (cnt != -1 && cnt < ans) return false;
+            if (cnt != -1 && cnt < ans) {
+                return false;
+            }
             //不等于-1，说明经过了，然后再看这个点和终点哪个次数多。ans多，说明这个点在ans前面，返回false。
         }
         return true;
@@ -227,13 +238,26 @@ public class test {
         // 前几轮的总次数
         int cnt = cmd.length * round;
         dx *= round;
-        dy *= round; // 在第x-1或y-1层时的位置。
-        if (dx == x && dy == y) return cnt; // 正好就是要找的点，直接返回。
-        for (char c : cmd) { // 遍历第x层或y层，如果经过，那么答案一定会遍历到。
-            if (c == 'U') dy++; // 要按command的顺序走
-            else dx++;
-            cnt++; // 不要忘了每遍历一次，次数都要加1
-            if (dx == x && dy == y) return cnt; // 一旦找到，直接返回所需要的次数。
+        // 在第x-1或y-1层时的位置。
+        dy *= round;
+        // 正好就是要找的点，直接返回。
+        if (dx == x && dy == y) {
+            return cnt;
+        }
+        // 遍历第x层或y层，如果经过，那么答案一定会遍历到。
+        for (char c : cmd) {
+            // 要按command的顺序走
+            if (c == 'U') {
+                dy++;
+            } else {
+                dx++;
+            }
+            // 不要忘了每遍历一次，次数都要加1
+            cnt++;
+            // 一旦找到，直接返回所需要的次数。
+            if (dx == x && dy == y) {
+                return cnt;
+            }
         }
         return -1;
     }
