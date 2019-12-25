@@ -226,11 +226,11 @@ public class test {
     /**
      * 判断是否经过该点，经过返回走的次数，没经过返回-1。
      *
-     * @param cmd
-     * @param x
-     * @param y
-     * @param dx
-     * @param dy
+     * @param cmd   走的步骤
+     * @param x     x终点
+     * @param y     y终点
+     * @param dx    x步数
+     * @param dy    y步数
      * @return
      */
     public int isPassed(char[] cmd, int x, int y, int dx, int dy) {
