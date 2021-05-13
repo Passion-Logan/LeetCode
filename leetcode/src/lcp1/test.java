@@ -34,7 +34,7 @@ public class Test {
 
         Test test = new Test();
 
-        int[] guess = {2,2,3};
+        int[] guess = {2,2,1};
         int[] answer = {3,2,1};
 
         System.out.println(test.game(guess, answer));
