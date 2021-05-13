@@ -28,11 +28,11 @@ package lcp1;
  * @author WQL
  * @since 2019年12月19日 0019 17:02
  */
-public class test {
+public class Test {
 
     public static void main(String[] args) {
 
-        test test = new test();
+        Test test = new Test();
 
         int[] guess = {2,2,3};
         int[] answer = {3,2,1};
